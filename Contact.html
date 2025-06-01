@@ -1,0 +1,1215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | Studio JooYi</title>
+    <style>
+        /* GLOBAL STYLES */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+            background-color: #0E0B16;
+            color: #E7DFDD;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4 {
+            font-family: 'Syne', sans-serif;
+            font-weight: 700;
+        }
+        
+        a {
+            color: #A239CA;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        a:hover {
+            color: #4717F6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-header h2 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            color: #E7DFDD;
+        }
+        
+        .section-subtitle {
+            font-size: 1.2rem;
+            color: #A239CA;
+        }
+        
+        /* NAVIGATION */
+        .floating-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            background-color: rgba(14, 11, 22, 0.9);
+            backdrop-filter: blur(10px);
+        }
+        
+        .nav-logo {
+            font-family: 'Syne', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 800;
+        }
+        
+        .logo-j {
+            color: #A239CA;
+        }
+        
+        .logo-rest {
+            color: #E7DFDD;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+        
+        .nav-links a {
+            color: #E7DFDD;
+            font-weight: 500;
+            position: relative;
+        }
+        
+        .nav-links a.active {
+            color: #A239CA;
+        }
+        
+        .nav-links a:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: #4717F6;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-links a:hover:after {
+            width: 100%;
+        }
+        
+        .nav-social {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .nav-social a {
+            color: #E7DFDD;
+            font-size: 1.2rem;
+        }
+        
+        .nav-social a:hover {
+            color: #A239CA;
+            transform: translateY(-3px);
+        }
+        
+        /* CONTACT HERO */
+        .contact-hero {
+            padding: 180px 0 100px;
+            display: flex;
+            align-items: center;
+            min-height: 80vh;
+        }
+        
+        .hero-content {
+            flex: 1;
+            padding-right: 50px;
+			padding-left: 60px;
+        }
+        
+        .hero-content h1 {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+            background: linear-gradient(45deg, #A239CA, #4717F6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .hero-content p {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            color: #E7DFDD;
+            max-width: 600px;
+        }
+        
+        .hero-illustration {
+            flex: 1;
+            position: relative;
+            height: 400px;
+        }
+        
+        .illustration-container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 300px;
+            height: 300px;
+        }
+        
+        .illustration-dots {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .dot {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: #A239CA;
+            animation: float 6s infinite ease-in-out;
+        }
+        
+        .dot-1 {
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #4717F6;
+            animation-delay: 0s;
+        }
+        
+        .dot-2 {
+            top: 20%;
+            right: 10%;
+            background-color: #A239CA;
+            animation-delay: 0.5s;
+        }
+        
+        .dot-3 {
+            bottom: 30%;
+            left: 20%;
+            background-color: #E7DFDD;
+            animation-delay: 1s;
+        }
+        
+        .dot-4 {
+            bottom: 10%;
+            right: 30%;
+            background-color: #4717F6;
+            animation-delay: 1.5s;
+        }
+        
+        .dot-5 {
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #A239CA;
+            animation-delay: 2s;
+        }
+        
+        .illustration-line {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 200px;
+            height: 200px;
+            border: 2px dashed rgba(167, 239, 202, 0.3);
+            border-radius: 50%;
+            animation: rotate 20s linear infinite;
+        }
+        
+        /* CONTACT FORM SECTION */
+        .contact-form-section {
+            padding: 100px 0;
+            display: flex;
+            gap: 50px;
+        }
+        
+        .form-container {
+            flex: 1;
+            background-color: rgba(231, 223, 221, 0.05);
+            padding: 40px;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(167, 239, 202, 0.1);
+        }
+        
+        .form-group {
+            margin-bottom: 30px;
+            position: relative;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 10px;
+            color: #E7DFDD;
+            font-weight: 500;
+        }
+        
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 15px 0;
+            background: transparent;
+            border: none;
+            border-bottom: 1px solid rgba(231, 223, 221, 0.3);
+            color: #E7DFDD;
+            font-size: 1rem;
+            font-family: 'Space Grotesk', sans-serif;
+        }
+        
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+        
+        .input-underline {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: #A239CA;
+            transition: width 0.3s ease;
+        }
+        
+        .form-group input:focus ~ .input-underline,
+        .form-group select:focus ~ .input-underline,
+        .form-group textarea:focus ~ .input-underline {
+            width: 100%;
+        }
+        
+        .file-upload {
+            display: block;
+            margin-top: 20px;
+        }
+        
+        .file-upload input[type="file"] {
+            display: none;
+        }
+        
+        .upload-label {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #A239CA;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .upload-label:hover {
+            color: #4717F6;
+        }
+        
+        .file-name {
+            display: block;
+            margin-top: 5px;
+            font-size: 0.9rem;
+            color: rgba(231, 223, 221, 0.7);
+        }
+        
+        .submit-btn {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 15px 30px;
+            background: linear-gradient(45deg, #A239CA, #4717F6);
+            color: #E7DFDD;
+            border: none;
+            border-radius: 50px;
+            font-family: 'Syne', sans-serif;
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 20px;
+        }
+        
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(71, 23, 246, 0.3);
+        }
+        
+        .btn-arrow {
+            transition: transform 0.3s ease;
+        }
+        
+        .submit-btn:hover .btn-arrow {
+            transform: translateX(5px);
+        }
+        
+        .form-success {
+            display: none;
+            text-align: center;
+            padding: 40px 0;
+        }
+        
+        .success-icon {
+            width: 80px;
+            height: 80px;
+            background-color: rgba(167, 239, 202, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 30px;
+        }
+        
+        .success-icon i {
+            font-size: 2.5rem;
+            color: #A239CA;
+        }
+        
+        .form-success h3 {
+            font-size: 2rem;
+            margin-bottom: 15px;
+            color: #E7DFDD;
+        }
+        
+        .form-success p {
+            margin-bottom: 30px;
+            color: rgba(231, 223, 221, 0.8);
+        }
+        
+        .new-message-btn {
+            padding: 12px 25px;
+            background: transparent;
+            color: #A239CA;
+            border: 1px solid #A239CA;
+            border-radius: 50px;
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .new-message-btn:hover {
+            background-color: rgba(162, 57, 202, 0.1);
+        }
+        
+        .contact-info {
+            flex: 1;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .info-card {
+            background-color: rgba(231, 223, 221, 0.05);
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(167, 239, 202, 0.1);
+        }
+        
+        .info-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(71, 23, 246, 0.2);
+        }
+        
+        .card-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(45deg, #A239CA, #4717F6);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 1.5rem;
+            color: #E7DFDD;
+        }
+        
+        .info-card h4 {
+            margin-bottom: 10px;
+            color: #E7DFDD;
+        }
+        
+        .info-card a {
+            color: rgba(231, 223, 221, 0.8);
+            transition: all 0.3s ease;
+        }
+        
+        .info-card a:hover {
+            color: #A239CA;
+        }
+        
+        /* FAQ SECTION */
+        .faq-section {
+            padding: 100px 0;
+            background-color: rgba(14, 11, 22, 0.7);
+        }
+        
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .faq-item {
+            margin-bottom: 20px;
+            border: 1px solid rgba(231, 223, 221, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .faq-item:hover {
+            border-color: rgba(162, 57, 202, 0.3);
+        }
+        
+        .faq-question {
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            background-color: rgba(231, 223, 221, 0.03);
+        }
+        
+        .faq-question h3 {
+            font-size: 1.2rem;
+            color: #E7DFDD;
+        }
+        
+        .faq-toggle {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background-color: rgba(162, 57, 202, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+        
+        .faq-question:hover .faq-toggle {
+            background-color: rgba(162, 57, 202, 0.3);
+        }
+        
+        .faq-toggle i {
+            color: #A239CA;
+            transition: all 0.3s ease;
+        }
+        
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease;
+            padding: 0 20px;
+            background-color: rgba(14, 11, 22, 0.5);
+        }
+        
+        .faq-answer p {
+            padding: 20px 0;
+            color: rgba(231, 223, 221, 0.8);
+        }
+        
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+        }
+        
+        .faq-item.active .faq-toggle i {
+            transform: rotate(45deg);
+        }
+        
+        /* CTA SECTION */
+        .cta-section {
+            padding: 120px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .cta-content h2 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: #E7DFDD;
+        }
+        
+        .cta-content p {
+            font-size: 1.3rem;
+            margin-bottom: 40px;
+            color: rgba(231, 223, 221, 0.8);
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .cta-btn {
+            display: inline-block;
+            padding: 18px 40px;
+            background: linear-gradient(45deg, #A239CA, #4717F6);
+            color: #E7DFDD;
+            border-radius: 50px;
+            font-family: 'Syne', sans-serif;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(71, 23, 246, 0.3);
+        }
+        
+        .cta-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(71, 23, 246, 0.4);
+        }
+        
+        .cta-decoration {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+        
+        .deco-shape {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(40px);
+            opacity: 0.3;
+        }
+        
+        .shape-1 {
+            width: 300px;
+            height: 300px;
+            background-color: #A239CA;
+            top: 20%;
+            left: 10%;
+            animation: float 8s infinite ease-in-out;
+        }
+        
+        .shape-2 {
+            width: 400px;
+            height: 400px;
+            background-color: #4717F6;
+            bottom: 10%;
+            right: 15%;
+            animation: float 10s infinite ease-in-out;
+            animation-delay: 1s;
+        }
+        
+        .shape-3 {
+            width: 200px;
+            height: 200px;
+            background-color: #E7DFDD;
+            top: 50%;
+            right: 20%;
+            animation: float 6s infinite ease-in-out;
+            animation-delay: 2s;
+        }
+        
+        /* FOOTER */
+        .main-footer {
+            background-color: rgba(14, 11, 22, 0.9);
+            padding: 80px 0 30px;
+            border-top: 1px solid rgba(231, 223, 221, 0.1);
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+        
+        .footer-col h4 {
+            font-size: 1.3rem;
+            margin-bottom: 25px;
+            color: #E7DFDD;
+        }
+        
+        .footer-col ul {
+            list-style: none;
+        }
+        
+        .footer-col ul li {
+            margin-bottom: 15px;
+        }
+        
+        .footer-col ul li a {
+            color: rgba(231, 223, 221, 0.7);
+            transition: all 0.3s ease;
+        }
+        
+        .footer-col ul li a:hover {
+            color: #A239CA;
+            padding-left: 5px;
+        }
+        
+        .music-player {
+            background-color: rgba(231, 223, 221, 0.05);
+            padding: 20px;
+            border-radius: 10px;
+            border: 1px solid rgba(231, 223, 221, 0.1);
+        }
+        
+        .song-title {
+            font-weight: 600;
+            color: #E7DFDD;
+            margin-bottom: 5px;
+        }
+        
+        .song-artist {
+            font-size: 0.9rem;
+            color: rgba(231, 223, 221, 0.6);
+            margin-bottom: 15px;
+        }
+        
+        .player-controls {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .play-btn {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: #A239CA;
+            color: #E7DFDD;
+            border: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .play-btn:hover {
+            background-color: #4717F6;
+            transform: scale(1.1);
+        }
+        
+        .progress-bar {
+            flex: 1;
+            height: 4px;
+            background-color: rgba(231, 223, 221, 0.2);
+            border-radius: 2px;
+            overflow: hidden;
+        }
+        
+        .progress {
+            height: 100%;
+            width: 30%;
+            background: linear-gradient(45deg, #A239CA, #4717F6);
+            border-radius: 2px;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(231, 223, 221, 0.1);
+            color: rgba(231, 223, 221, 0.5);
+            font-size: 0.9rem;
+        }
+        
+        /* ANIMATIONS */
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+        
+        @keyframes rotate {
+            0% {
+                transform: translate(-50%, -50%) rotate(0deg);
+            }
+            100% {
+                transform: translate(-50%, -50%) rotate(360deg);
+            }
+        }
+        
+        /* RESPONSIVE STYLES */
+        @media (max-width: 1024px) {
+            .contact-hero {
+               padding: 150px 0 80px; 
+               margin-bottom: 40px; 
+}
+            
+            .hero-content {
+                padding-right: 0;
+                margin-bottom: 50px;
+            }
+            
+            .hero-content h1 {
+                font-size: 3.5rem;
+            }
+            
+           .contact-form-section {
+                padding: 80px 0;
+                margin: 0 auto 60px; 
+                gap: 40px; 
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .floating-nav {
+                padding: 15px 20px;
+            }
+            
+            .nav-links {
+                gap: 15px;
+            }
+            
+            .hero-content h1 {
+                font-size: 2.8rem;
+            }
+            
+            .hero-content p {
+                font-size: 1.2rem;
+            }
+            
+            .section-header h2 {
+                font-size: 2rem;
+            }
+            
+            .cta-content h2 {
+                font-size: 2.2rem;
+            }
+            
+            .cta-content p {
+                font-size: 1.1rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero-content h1 {
+                font-size: 2.2rem;
+            }
+            
+            .form-container {
+                padding: 30px 20px;
+            }
+            
+            .faq-question h3 {
+                font-size: 1rem;
+            }
+            
+            .cta-content h2 {
+                font-size: 1.8rem;
+            }
+            
+            .cta-btn {
+                padding: 15px 30px;
+            }
+        }
+    </style>
+
+  <!-- Fonts & Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="css/main.css" />
+	
+</head>
+<body>
+    <!-- Floating Navigation -->
+    <nav class="floating-nav">
+        <div class="nav-logo">
+            <span class="logo-j">J</span>
+            <span class="logo-rest">ooYi</span>
+        </div>
+        <div class="nav-links">
+            <a href="index.html"><span>Home</span></a>
+            <a href="blueprint.html"><span>Blueprint</span></a>
+            <a href="inspirations.html"><span>Inspirations</span></a>
+            <a href="dna.html"><span>DNA</span></a>
+            <a href="projects.html"><span>Projects</span></a>
+            <a href="contact.html" class="active"><span>Contact</span></a>
+        </div>
+        <div class="nav-social">
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-behance"></i></a>
+            <a href="#"><i class="fab fa-dribbble"></i></a>
+        </div>
+    </nav>
+    
+    <!-- Contact Hero -->
+    <section class="contact-hero">
+        <div class="hero-content">
+            <h1>Let's Create Together</h1>
+            <p>Say Hi. Say Hello. Or say "Let's make magic."</p>
+        </div>
+        <div class="hero-illustration">
+            <div class="illustration-container">
+                <div class="illustration-dots">
+                    <div class="dot dot-1"></div>
+                    <div class="dot dot-2"></div>
+                    <div class="dot dot-3"></div>
+                    <div class="dot dot-4"></div>
+                    <div class="dot dot-5"></div>
+                </div>
+                <div class="illustration-line"></div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Contact Form -->
+    <section class="contact-form-section">
+        <div class="form-container">
+            <form id="contactForm">
+                <div class="form-group">
+                    <label for="name">Your Name</label>
+                    <input type="text" id="name" name="name" required>
+                    <div class="input-underline"></div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Your Email</label>
+                    <input type="email" id="email" name="email" required>
+                    <div class="input-underline"></div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="subject">Subject</label>
+                    <select id="subject" name="subject">
+                        <option value="project">Project Inquiry</option>
+                        <option value="collab">Collaboration</option>
+                        <option value="hello">Just Saying Hello</option>
+                        <option value="other">Other</option>
+                    </select>
+                    <div class="input-underline"></div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="message">Your Message</label>
+                    <textarea id="message" name="message" rows="5" required></textarea>
+                    <div class="input-underline"></div>
+                </div>
+                
+                <div class="form-group">
+                    <label class="file-upload">
+                        <input type="file" id="attachment" name="attachment">
+                        <span class="upload-label">
+                            <i class="fas fa-paperclip"></i>
+                            <span>Attach Files (Optional)</span>
+                        </span>
+                        <span class="file-name" id="fileName">No file selected</span>
+                    </label>
+                </div>
+                
+                <button type="submit" class="submit-btn">
+                    <span>Send Message</span>
+                    <div class="btn-arrow">
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                </button>
+            </form>
+            
+            <div class="form-success">
+                <div class="success-icon">
+                    <i class="fas fa-check"></i>
+                </div>
+                <h3>Message Sent!</h3>
+                <p>Thank you for reaching out. I'll get back to you within 48 hours.</p>
+                <button class="new-message-btn">Send Another Message</button>
+            </div>
+        </div>
+        
+        <div class="contact-info">
+            <div class="info-card">
+                <div class="card-icon">
+                    <i class="fas fa-envelope"></i>
+                </div>
+                <h4>Email</h4>
+                <a href="mailto:jooyi.designs@email.com">jooyi.designs@email.com</a>
+            </div>
+            
+            <div class="info-card">
+                <div class="card-icon">
+                    <i class="fab fa-instagram"></i>
+                </div>
+                <h4>Instagram</h4>
+                <a href="https://instagram.com/jooyi.designs" target="_blank">@jooyi.designs</a>
+            </div>
+            
+            <div class="info-card">
+                <div class="card-icon">
+                    <i class="fab fa-behance"></i>
+                </div>
+                <h4>Behance</h4>
+                <a href="https://behance.net/jooyi" target="_blank">behance.net/jooyi</a>
+            </div>
+            
+            <div class="info-card">
+                <div class="card-icon">
+                    <i class="fas fa-music"></i>
+                </div>
+                <h4>Design Playlist</h4>
+                <p>Lo-fi, city pop, cinematic instrumentals</p>
+            </div>
+            
+            <div class="info-card">
+                <div class="card-icon">
+                    <i class="fas fa-mug-hot"></i>
+                </div>
+                <h4>Creative Sidekick</h4>
+                <p>Iced matcha or lemon soda</p>
+            </div>
+            
+            <div class="info-card">
+                <div class="card-icon">
+                    <i class="fas fa-heart"></i>
+                </div>
+                <h4>Note to Self</h4>
+                <p>"You don't design to please the world. You design to bring beauty into it."</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Q&A</h2>
+                <p class="section-subtitle">Quick answers to common inquiries</p>
+            </div>
+            
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>What type of design do you love most?</h3>
+                        <div class="faq-toggle">
+                            <i class="fas fa-plus"></i>
+                        </div>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Branding & visual identity — helping clients find and own their style.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>What do you value in a project?</h3>
+                        <div class="faq-toggle">
+                            <i class="fas fa-plus"></i>
+                        </div>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Respectful communication, shared vision, and clients who understand the emotional power of design.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>What services do you offer?</h3>
+                        <div class="faq-toggle">
+                            <i class="fas fa-plus"></i>
+                        </div>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Brand logo & visual identity</p>
+                        <p>IG templates / poster design</p>
+                        <p>Digital planner templates</p>
+                        <p>Illustration work</p>
+                        <p>Copywriting + design integration</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready to Bring Your Vision to Life?</h2>
+                <p>Let's discuss how we can create something beautiful together.</p>
+                <a href="#contactForm" class="cta-btn">Get in Touch</a>
+            </div>
+            <div class="cta-decoration">
+                <div class="deco-shape shape-1"></div>
+                <div class="deco-shape shape-2"></div>
+                <div class="deco-shape shape-3"></div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <h4>Navigate</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="blueprint.html">My Blueprint</a></li>
+                        <li><a href="inspirations.html">Inspirations</a></li>
+                        <li><a href="dna.html">Design DNA</a></li>
+                        <li><a href="projects.html">Projects</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Connect</h4>
+                    <ul>
+                        <li><a href="mailto:jooyi.designs@email.com">Email</a></li>
+                        <li><a href="https://instagram.com/jooyi.designs" target="_blank">Instagram</a></li>
+                        <li><a href="https://behance.net/jooyi" target="_blank">Behance</a></li>
+                        <li><a href="#">Dribbble</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Current Jam</h4>
+                    <div class="music-player">
+                        <div class="song-info">
+                            <div class="song-title">Chill Vibes</div>
+                            <div class="song-artist">JooYi's Relax Mix</div>
+                        </div>
+                        <div class="player-controls">
+                            <button class="play-btn"><i class="fas fa-play"></i></button>
+                            <div class="progress-bar">
+                                <div class="progress"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2023 Studio JooYi. All rights reserved.</p>
+                <p>Created with passion and iced matcha.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        // Contact Form Handling
+        document.addEventListener('DOMContentLoaded', function() {
+            // File upload display
+            const fileInput = document.getElementById('attachment');
+            const fileNameDisplay = document.getElementById('fileName');
+            
+            fileInput.addEventListener('change', function() {
+                if (this.files && this.files.length > 0) {
+                    fileNameDisplay.textContent = this.files[0].name;
+                } else {
+                    fileNameDisplay.textContent = 'No file selected';
+                }
+            });
+            
+            // Form submission
+            const contactForm = document.getElementById('contactForm');
+            const formContainer = document.querySelector('.form-container');
+            const formSuccess = document.querySelector('.form-success');
+            const newMessageBtn = document.querySelector('.new-message-btn');
+            
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Simulate form submission
+                setTimeout(() => {
+                    formContainer.style.display = 'none';
+                    formSuccess.style.display = 'block';
+                }, 1000);
+            });
+            
+            newMessageBtn.addEventListener('click', function() {
+                formContainer.style.display = 'block';
+                formSuccess.style.display = 'none';
+                contactForm.reset();
+                fileNameDisplay.textContent = 'No file selected';
+            });
+            
+            // FAQ Toggle
+            const faqQuestions = document.querySelectorAll('.faq-question');
+            
+            faqQuestions.forEach(question => {
+                question.addEventListener('click', () => {
+                    const faqItem = question.parentElement;
+                    faqItem.classList.toggle('active');
+                    
+                    const toggleIcon = question.querySelector('i');
+                    if (faqItem.classList.contains('active')) {
+                        toggleIcon.classList.remove('fa-plus');
+                        toggleIcon.classList.add('fa-times');
+                    } else {
+                        toggleIcon.classList.remove('fa-times');
+                        toggleIcon.classList.add('fa-plus');
+                    }
+                });
+            });
+            
+            // Music Player Simulation
+            const playBtn = document.querySelector('.play-btn');
+            const progressBar = document.querySelector('.progress');
+            let isPlaying = false;
+            let progress = 0;
+            let progressInterval;
+            
+            playBtn.addEventListener('click', function() {
+                isPlaying = !isPlaying;
+                
+                const icon = this.querySelector('i');
+                icon.classList.toggle('fa-play');
+                icon.classList.toggle('fa-pause');
+                
+                if (isPlaying) {
+                    progressInterval = setInterval(() => {
+                        progress += 0.5;
+                        if (progress > 100) progress = 0;
+                        progressBar.style.width = `${progress}%`;
+                    }, 500);
+                } else {
+                    clearInterval(progressInterval);
+                }
+            });
+            
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 100,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
